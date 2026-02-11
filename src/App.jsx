@@ -3,7 +3,7 @@ import './App.css'
 function App() {
   return (
     <main className="page">
-      <h1>Andre Larsson</h1>
+      <h1>André Larsson</h1>
       <p>Projects and experiments.</p>
       <section className="links">
         <div className="link-item">
