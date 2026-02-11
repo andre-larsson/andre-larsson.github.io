@@ -3,8 +3,14 @@ import './App.css'
 function App() {
   return (
     <main className="page">
-      <h1>Empty page</h1>
-      <p>Nothing here yet.</p>
+      <h1>Andre Larsson</h1>
+      <p>Projects and experiments.</p>
+      <section className="links">
+        <div className="link-item">
+          <a href="https://andre-larsson.github.io/mandelbrot/">Mandelbrot</a>
+          <span>Interactive fractal explorer and demo.</span>
+        </div>
+      </section>
     </main>
   )
 }
