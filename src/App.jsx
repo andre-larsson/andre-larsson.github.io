@@ -10,6 +10,10 @@ function App() {
           <a href="https://andre-larsson.github.io/mandelbrot/">Mandelbrot</a>
           <span>Interactive fractal explorer and demo.</span>
         </div>
+        <div className="link-item">
+          <a href="https://andre-larsson.github.io/interval-trainer/">Interval Trainer</a>
+          <span>Öva gehör med intervallträning direkt i webbläsaren (på svenska 🇸🇪).</span>
+        </div>
       </section>
     </main>
   )
