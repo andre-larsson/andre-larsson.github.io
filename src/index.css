@@ -4,8 +4,8 @@
   font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.4;
   font-weight: 400;
-  color: #121212;
-  background-color: #f7f4ef;
+  color: #f3f6ff;
+  background-color: #06080f;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +22,10 @@ body {
   display: grid;
   place-items: center;
   padding: 2rem;
+  background:
+    radial-gradient(1200px 700px at 10% -10%, rgba(88, 116, 255, 0.22), transparent 60%),
+    radial-gradient(900px 600px at 100% 100%, rgba(0, 201, 255, 0.14), transparent 55%),
+    linear-gradient(180deg, #0b1020 0%, #06080f 100%);
 }
 
 a {
