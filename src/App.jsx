@@ -16,7 +16,7 @@ function App() {
         </div>
         <div className="link-item">
           <a href="https://andre-larsson.github.io/quiz-system/">Quiz System</a>
-          <span>Modular quiz engine with JSON-based question files (Swedish 🇸🇪 UI).</span>
+          <span>Modular quiz engine with JSON-based question files (English 🇬🇧).</span>
         </div>
       </section>
     </main>
