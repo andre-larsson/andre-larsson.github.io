@@ -44,30 +44,15 @@ function App() {
       <div className="shell">
         <section className="hero-panel">
           <div className="hero-copy">
-            <p className="eyebrow">SYSTEM MENU // USER SELECT</p>
-            <h1>André Larsson</h1>
-            <p className="subtitle">Projects and experiments loaded like a late-night PS2 dashboard.</p>
-          </div>
-
-          <div className="status-panel" aria-label="Site status">
-            <div>
-              <span className="status-label">Profile</span>
-              <strong>Indie Web Build</strong>
-            </div>
-            <div>
-              <span className="status-label">Mode</span>
-              <strong>Single Player</strong>
-            </div>
-            <div>
-              <span className="status-label">Library</span>
-              <strong>{projects.length} Entries</strong>
-            </div>
+            <p className="eyebrow">Project Index</p>
+            <h1>Menu</h1>
+            <p className="subtitle">Projects and experiments collected in one place.</p>
           </div>
         </section>
 
         <section className="menu-panel">
           <div className="menu-header">
-            <span className="menu-kicker">Memory Card</span>
+            <span className="menu-kicker">Projects</span>
             <p>Select a project.</p>
           </div>
 
@@ -89,11 +74,6 @@ function App() {
         </section>
       </div>
       <div className="scanlines" aria-hidden="true" />
-      <div className="hud" aria-hidden="true">
-        <span>PRESS START</span>
-        <span>BROWSER READY</span>
-        <span>NTSC // 60 HZ</span>
-      </div>
       <div className="orbs" aria-hidden="true">
         <span className="orb orb-a" />
         <span className="orb orb-b" />

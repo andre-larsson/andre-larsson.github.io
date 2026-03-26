@@ -39,9 +39,7 @@
 }
 
 .eyebrow,
-.menu-kicker,
-.status-label,
-.hud span {
+.menu-kicker {
   text-transform: uppercase;
   letter-spacing: 0.24em;
 }
@@ -66,31 +64,6 @@
   max-width: 34rem;
   font-size: clamp(1rem, 2.6vw, 1.15rem);
   color: rgba(220, 247, 255, 0.78);
-}
-
-.status-panel {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.status-panel > div {
-  display: grid;
-  gap: 0.35rem;
-  padding: 0.85rem 1rem;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(123, 225, 255, 0.14), rgba(17, 55, 97, 0.18));
-  border: 1px solid rgba(122, 215, 255, 0.2);
-}
-
-.status-label {
-  font-size: 0.66rem;
-  color: rgba(154, 226, 255, 0.72);
-}
-
-.status-panel strong {
-  font-size: 1rem;
-  color: #f7fdff;
 }
 
 .menu-panel {
@@ -241,18 +214,6 @@
   mix-blend-mode: soft-light;
 }
 
-.hud {
-  position: absolute;
-  inset: 1rem 1.2rem auto;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.68rem;
-  color: rgba(167, 228, 255, 0.62);
-  pointer-events: none;
-}
-
 .orbs {
   position: absolute;
   inset: 0;
@@ -312,14 +273,12 @@
     padding: 1rem;
   }
 
-  .status-panel,
   .link-item {
     grid-template-columns: 1fr;
   }
 
   .menu-header,
-  .link-title-row,
-  .hud {
+  .link-title-row {
     display: grid;
   }
 
@@ -330,9 +289,5 @@
 
   .hero-panel h1 {
     font-size: clamp(2.3rem, 16vw, 4.4rem);
-  }
-
-  .hud {
-    inset: 0.75rem 0.85rem auto;
   }
 }
