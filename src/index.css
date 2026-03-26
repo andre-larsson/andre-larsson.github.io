@@ -1,33 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;700&family=Rajdhani:wght@500;700&display=swap');
 
 :root {
-  font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Oxanium", "Trebuchet MS", sans-serif;
   line-height: 1.4;
   font-weight: 400;
   color: #f3f6ff;
-  background-color: #06080f;
+  background-color: #030814;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
 }
 
 * {
   box-sizing: border-box;
 }
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
+  padding: clamp(1rem, 2vw, 2rem);
+  background:
+    radial-gradient(circle at 20% 18%, rgba(131, 212, 255, 0.22), transparent 0 22%),
+    radial-gradient(circle at 78% 12%, rgba(77, 126, 255, 0.28), transparent 0 20%),
+    radial-gradient(circle at 50% 100%, rgba(0, 203, 255, 0.1), transparent 0 28%),
+    linear-gradient(180deg, #081222 0%, #030814 55%, #02050e 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: calc(100vh - (2 * clamp(1rem, 2vw, 2rem)));
   display: grid;
   place-items: center;
-  padding: 2rem;
-  background:
-    radial-gradient(1200px 700px at 10% -10%, rgba(88, 116, 255, 0.22), transparent 60%),
-    radial-gradient(900px 600px at 100% 100%, rgba(0, 201, 255, 0.14), transparent 55%),
-    linear-gradient(180deg, #0b1020 0%, #06080f 100%);
 }
 
 a {
   color: inherit;
+}
+
+h1,
+.link-title-row strong,
+.status-panel strong {
+  font-family: "Rajdhani", "Arial Narrow", sans-serif;
 }
