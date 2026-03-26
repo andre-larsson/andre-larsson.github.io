@@ -22,6 +22,10 @@ function App() {
           <a href="https://andre-larsson.github.io/musicians-toolbox/">Musicians Toolbox</a>
           <span>Browser metronome, tap tempo, tuner, and speaker check (English 🇬🇧).</span>
         </div>
+        <div className="link-item">
+          <a href="https://andre-larsson.github.io/json-object-arrayifier/">JSON Object Arrayifier</a>
+          <span>Convert whitespace-separated JSON objects into a valid array (English 🇬🇧).</span>
+        </div>
       </section>
     </main>
   )
