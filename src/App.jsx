@@ -18,6 +18,10 @@ function App() {
           <a href="https://andre-larsson.github.io/quiz-system/">Quiz System</a>
           <span>Modular quiz engine with JSON-based question files (English 🇬🇧).</span>
         </div>
+        <div className="link-item">
+          <a href="https://andre-larsson.github.io/musicians-toolbox/">Musicians Toolbox</a>
+          <span>Browser metronome, tap tempo, tuner, and speaker check (English 🇬🇧).</span>
+        </div>
       </section>
     </main>
   )
