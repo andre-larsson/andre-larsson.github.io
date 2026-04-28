@@ -2,6 +2,13 @@ import './App.css'
 
 const projects = [
   {
+    href: 'https://andre-larsson.github.io/relativity-visualizer/',
+    title: 'Relativity Visualizer',
+    description: 'Interactive Lorentz boost explorer for Minkowski coordinates and invariants.',
+    type: 'Physics Demo',
+    status: 'New',
+  },
+  {
     href: 'https://andre-larsson.github.io/mandelbrot/',
     title: 'Mandelbrot',
     description: 'Interactive fractal explorer and demo.',
