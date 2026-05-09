@@ -2,6 +2,13 @@ import './App.css'
 
 const projects = [
   {
+    href: 'https://andre-larsson.github.io/hsl-shade-lab/',
+    title: 'HSL Shade Lab',
+    description: 'Generate HSL shade ranges and tune each color manually.',
+    type: 'Color Tool',
+    status: 'New',
+  },
+  {
     href: 'https://andre-larsson.github.io/relativity-visualizer/',
     title: 'Relativity Visualizer',
     description: 'Interactive Lorentz boost explorer for Minkowski coordinates and invariants.',
