@@ -2,7 +2,7 @@
 
 <INSTRUCTIONS>
 - Primary goal: GitHub Pages root site for andre-larsson.github.io.
-- Local path: /home/andre/repos/andre-larsson.github.io.
+- Repository: root GitHub Pages site repository.
 - Build: `npm run build`.
 - Lint: `npm run lint`.
 - Preview/dev: `npm run dev`.
