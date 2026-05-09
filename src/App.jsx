@@ -2,6 +2,13 @@ import './App.css'
 
 const projects = [
   {
+    href: 'https://andre-larsson.github.io/font-lab/',
+    title: 'Font Lab',
+    description: 'Experiment with font stacks, uploaded fonts, and type settings.',
+    type: 'Typography Tool',
+    status: 'New',
+  },
+  {
     href: 'https://andre-larsson.github.io/hsl-shade-lab/',
     title: 'HSL Shade Lab',
     description: 'Generate HSL shade ranges and tune each color manually.',
