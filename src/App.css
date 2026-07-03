@@ -167,22 +167,11 @@
   color: rgba(214, 241, 255, 0.72);
 }
 
-.link-chip,
 .link-meta {
   white-space: nowrap;
   font-size: 0.77rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-}
-
-.link-chip {
-  padding: 0.34rem 0.62rem;
-  border-radius: 999px;
-  background: rgba(143, 227, 255, 0.12);
-  color: #9de9ff;
-}
-
-.link-meta {
   color: rgba(148, 224, 255, 0.7);
 }
 

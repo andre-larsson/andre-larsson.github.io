@@ -6,7 +6,6 @@ const projects = [
     title: 'TomteMacro',
     description: 'Cross-platform auto-clicker and mouse/keyboard macro recorder written in Rust.',
     type: 'Desktop App',
-    status: 'New',
     downloads: [
       { label: 'Linux', href: 'https://github.com/andre-larsson/tomtemacro/releases/latest/download/tomte-linux-x86_64.tar.gz' },
       { label: 'Windows', href: 'https://github.com/andre-larsson/tomtemacro/releases/latest/download/tomte-windows-x86_64.zip' },
@@ -18,56 +17,48 @@ const projects = [
     title: 'Font Lab',
     description: 'Experiment with font stacks, uploaded fonts, and type settings.',
     type: 'Typography Tool',
-    status: 'New',
   },
   {
     href: 'https://andre-larsson.github.io/hsl-shade-lab/',
     title: 'HSL Shade Lab',
     description: 'Generate HSL shade ranges and tune each color manually.',
     type: 'Color Tool',
-    status: 'New',
   },
   {
     href: 'https://andre-larsson.github.io/relativity-visualizer/',
     title: 'Relativity Visualizer',
     description: 'Interactive Lorentz boost explorer for Minkowski coordinates and invariants.',
     type: 'Physics Demo',
-    status: 'New',
   },
   {
     href: 'https://andre-larsson.github.io/mandelbrot/',
     title: 'Mandelbrot',
     description: 'Interactive fractal explorer and demo.',
     type: 'Visualization',
-    status: 'Stable',
   },
   {
     href: 'https://andre-larsson.github.io/interval-trainer/',
     title: 'Interval Trainer',
     description: 'Ear training for intervals in your browser.',
     type: 'Music Tool',
-    status: 'Arcade',
   },
   {
     href: 'https://andre-larsson.github.io/quiz-system/',
     title: 'Quiz System',
     description: 'Modular quiz engine with JSON-based question files.',
     type: 'Framework',
-    status: 'Customizable',
   },
   {
     href: 'https://andre-larsson.github.io/musicians-toolbox/',
     title: 'Musicians Toolbox',
     description: 'Browser metronome, tap tempo, tuner, and speaker check.',
     type: 'Utility Pack',
-    status: 'Live',
   },
   {
     href: 'https://andre-larsson.github.io/json-object-arrayifier/',
     title: 'JSON Object Arrayifier',
     description: 'Convert whitespace-separated JSON objects into a valid array.',
     type: 'Data Tool',
-    status: 'Fast',
   },
 ]
 
@@ -110,7 +101,6 @@ function App() {
                           project.title
                         )}
                       </strong>
-                      <span className="link-chip">{project.status}</span>
                     </div>
                     <span>{project.description}</span>
                     {project.downloads && (
