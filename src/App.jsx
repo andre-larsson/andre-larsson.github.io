@@ -2,6 +2,18 @@ import './App.css'
 
 const projects = [
   {
+    href: 'https://github.com/andre-larsson/tomtemacro',
+    title: 'TomteMacro',
+    description: 'Cross-platform auto-clicker and mouse/keyboard macro recorder written in Rust.',
+    type: 'Desktop App',
+    status: 'New',
+    downloads: [
+      { label: 'Linux', href: 'https://github.com/andre-larsson/tomtemacro/releases/latest/download/tomte-linux-x86_64.tar.gz' },
+      { label: 'Windows', href: 'https://github.com/andre-larsson/tomtemacro/releases/latest/download/tomte-windows-x86_64.zip' },
+      { label: 'macOS', href: 'https://github.com/andre-larsson/tomtemacro/releases/latest/download/tomte-macos-universal.tar.gz' },
+    ],
+  },
+  {
     href: 'https://andre-larsson.github.io/font-lab/',
     title: 'Font Lab',
     description: 'Experiment with font stacks, uploaded fonts, and type settings.',
@@ -78,19 +90,41 @@ function App() {
           </div>
 
           <div className="links">
-            {projects.map((project, index) => (
-              <a key={project.href} className="link-item" href={project.href}>
-                <span className="link-index">{String(index + 1).padStart(2, '0')}</span>
-                <div className="link-copy">
-                  <div className="link-title-row">
-                    <strong>{project.title}</strong>
-                    <span className="link-chip">{project.status}</span>
+            {projects.map((project, index) => {
+              // Cards with download links render as a <div> because <a>
+              // elements can't nest; the title carries the main link instead.
+              const Card = project.downloads ? 'div' : 'a'
+              return (
+                <Card
+                  key={project.href}
+                  className={project.downloads ? 'link-item link-item-static' : 'link-item'}
+                  href={project.downloads ? undefined : project.href}
+                >
+                  <span className="link-index">{String(index + 1).padStart(2, '0')}</span>
+                  <div className="link-copy">
+                    <div className="link-title-row">
+                      <strong>
+                        {project.downloads ? (
+                          <a className="link-title-link" href={project.href}>{project.title}</a>
+                        ) : (
+                          project.title
+                        )}
+                      </strong>
+                      <span className="link-chip">{project.status}</span>
+                    </div>
+                    <span>{project.description}</span>
+                    {project.downloads && (
+                      <div className="link-downloads">
+                        {project.downloads.map((dl) => (
+                          <a key={dl.href} className="link-download" href={dl.href}>{dl.label}</a>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  <span>{project.description}</span>
-                </div>
-                <div className="link-meta">{project.type}</div>
-              </a>
-            ))}
+                  <div className="link-meta">{project.type}</div>
+                </Card>
+              )
+            })}
           </div>
         </section>
       </div>

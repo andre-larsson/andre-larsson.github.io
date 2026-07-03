@@ -186,6 +186,48 @@
   color: rgba(148, 224, 255, 0.7);
 }
 
+.link-item-static {
+  cursor: default;
+}
+
+.link-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link-title-link:hover,
+.link-title-link:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.link-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.link-download {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(133, 231, 255, 0.35);
+  background: rgba(143, 227, 255, 0.08);
+  color: #9de9ff;
+  font-size: 0.77rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  transition: border-color 170ms ease, background 170ms ease;
+}
+
+.link-download:hover,
+.link-download:focus-visible {
+  border-color: rgba(133, 231, 255, 0.7);
+  background: rgba(143, 227, 255, 0.18);
+  outline: none;
+}
+
 .footer-note {
   z-index: 1;
   padding: 0.8rem 1rem;
