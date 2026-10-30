@@ -2,6 +2,12 @@ import './App.css'
 
 const projects = [
   {
+    href: 'https://andre-larsson.github.io/sandpile/',
+    title: 'Sandpile',
+    description: 'Drop sand, change the toppling rules, and watch patterns form.',
+    type: 'Math Demo',
+  },
+  {
     href: 'https://github.com/andre-larsson/tomtemacro',
     title: 'TomteMacro',
     description: 'Cross-platform auto-clicker and mouse/keyboard macro recorder written in Rust.',
