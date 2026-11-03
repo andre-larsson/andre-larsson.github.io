@@ -2,6 +2,12 @@ import './App.css'
 
 const projects = [
   {
+    href: 'https://andre-larsson.github.io/times/',
+    title: 'The 403 Times',
+    description: 'A daily personal newspaper on AI, tech, PC gaming and game deals.',
+    type: 'News Site',
+  },
+  {
     href: 'https://andre-larsson.github.io/sandpile/',
     title: 'Sandpile',
     description: 'Drop sand, change the toppling rules, and watch patterns form.',
