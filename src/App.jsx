@@ -2,6 +2,12 @@ import './App.css'
 
 const projects = [
   {
+    href: 'https://andre-larsson.github.io/games/',
+    title: 'Games',
+    description: 'Small browser games: the push-puzzle Menhir and the deckbuilder Brinelight.',
+    type: 'Games',
+  },
+  {
     href: 'https://andre-larsson.github.io/times/',
     title: 'The 403 Times',
     description: 'A daily personal newspaper on AI, tech, PC gaming and game deals.',
