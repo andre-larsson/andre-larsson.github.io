@@ -1,22 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;700&family=Rajdhani:wght@500;700&display=swap');
-
 :root {
-  font-family: "Oxanium", "Trebuchet MS", sans-serif;
-  line-height: 1.4;
+  /* Surfaces: one cool navy ramp, darkest to brightest. */
+  --ink: #04050f;
+  --navy-900: #080b24;
+  --navy-700: #151e58;
+  --navy-600: #1f2e86;
+  --blue-500: #2f4bd6;
+  --blue-300: #8ea4ff;
+
+  /* Text */
+  --text: #f2f3fb;
+  --text-dim: #b7bcd8;
+  --text-mute: #878eb2;
+
+  /* The cursor and whatever it is resting on. */
+  --select: #ffd646;
+
+  /* Face-button quartet; decorative only. */
+  --teal: #34d0aa;
+  --red: #f04e68;
+  --sky: #5c98ff;
+  --pink: #e888d8;
+
+  /* Bevel edges, lit from the top left. */
+  --edge-light: #6f7fd6;
+  --edge-dark: #222a6e;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+
+  --gutter: clamp(16px, 3vw, 40px);
+
+  /* Jersey 10 is drawn on a 10px grid, so it only stays crisp at multiples
+     of 10. At 20px one font pixel is 2 CSS pixels, the same unit the borders
+     and dither textures use. Tracking is in whole pixels for the same reason. */
+  --font-ui: 'Jersey 10', 'Arial Narrow', sans-serif;
+  --font-display: 'Michroma', 'Eurostile Extended', 'Arial Black', sans-serif;
+  --type-base: 20px;
+  --type-large: 40px;
+  --line: 24px;
+  --tracking: 2px;
+
+  font-family: var(--font-ui);
+  font-size: var(--type-base);
+  line-height: var(--line);
   font-weight: 400;
-  color: #f3f6ff;
-  background-color: #030814;
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+  background-color: var(--ink);
   color-scheme: dark;
+  -webkit-font-smoothing: none;
+  -webkit-text-size-adjust: 100%;
 }
 
-* {
-  box-sizing: border-box;
-}
-
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -25,27 +64,13 @@
 body {
   margin: 0;
   min-height: 100vh;
-  padding: clamp(1rem, 2vw, 2rem);
-  background:
-    radial-gradient(circle at 20% 18%, rgba(131, 212, 255, 0.22), transparent 0 22%),
-    radial-gradient(circle at 78% 12%, rgba(77, 126, 255, 0.28), transparent 0 20%),
-    radial-gradient(circle at 50% 100%, rgba(0, 203, 255, 0.1), transparent 0 28%),
-    linear-gradient(180deg, #081222 0%, #030814 55%, #02050e 100%);
-  background-attachment: fixed;
+  min-height: 100dvh;
+  padding: var(--gutter);
 }
 
 #root {
-  min-height: calc(100vh - (2 * clamp(1rem, 2vw, 2rem)));
+  min-height: calc(100vh - 2 * var(--gutter));
+  min-height: calc(100dvh - 2 * var(--gutter));
   display: grid;
   place-items: center;
-}
-
-a {
-  color: inherit;
-}
-
-h1,
-.link-title-row strong,
-.status-panel strong {
-  font-family: "Rajdhani", "Arial Narrow", sans-serif;
 }

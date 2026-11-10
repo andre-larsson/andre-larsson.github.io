@@ -1,324 +1,455 @@
-.page {
-  position: relative;
-  width: min(1100px, 100%);
-  overflow: hidden;
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
 }
 
-.shell {
+/* ---- Layout ------------------------------------------------------------ */
+
+.screen {
   position: relative;
   z-index: 1;
+  width: min(1120px, 100%);
   display: grid;
-  gap: 1.35rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'masthead viewer'
+    'menu menu'
+    'footer footer';
+  gap: var(--space-5) var(--space-4);
 }
 
-.hero-panel,
-.menu-panel,
-.footer-note {
-  position: relative;
-  border: 1px solid rgba(148, 212, 255, 0.34);
-  background:
-    linear-gradient(135deg, rgba(10, 22, 52, 0.92), rgba(8, 14, 33, 0.86)),
-    linear-gradient(180deg, rgba(116, 196, 255, 0.08), rgba(255, 255, 255, 0));
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.45),
-    inset 0 0 0 1px rgba(180, 236, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(10px);
+/* ---- Shared surface: hard bevel, hard shadow, no blur ------------------- */
+
+.panel {
+  background: rgba(8, 11, 36, 0.8);
+  border: 2px solid;
+  border-color: var(--edge-light) var(--edge-dark) var(--edge-dark) var(--edge-light);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.45);
 }
 
-.hero-panel {
-  display: grid;
-  gap: 1rem;
-  padding: 1.4rem;
-  border-radius: 28px 28px 18px 18px;
-}
-
-.hero-copy {
-  display: grid;
-  gap: 0.6rem;
-}
-
-.eyebrow,
-.menu-kicker {
+.label {
   text-transform: uppercase;
-  letter-spacing: 0.24em;
+  letter-spacing: var(--tracking);
+}
+
+/* ---- Masthead ---------------------------------------------------------- */
+
+.masthead {
+  grid-area: masthead;
+  display: grid;
+  gap: var(--space-2);
+  align-content: center;
 }
 
 .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   margin: 0;
-  font-size: 0.72rem;
-  color: #8fd7ff;
+  color: var(--text-dim);
 }
 
-.hero-panel h1 {
+.pips {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 2px;
+}
+
+.pips i {
+  width: 8px;
+  height: 8px;
+}
+
+.pips i:nth-child(1) { background: var(--teal); }
+.pips i:nth-child(2) { background: var(--red); }
+.pips i:nth-child(3) { background: var(--sky); }
+.pips i:nth-child(4) { background: var(--pink); }
+
+.masthead h1 {
   margin: 0;
-  font-size: clamp(2.6rem, 10vw, 5.6rem);
-  line-height: 0.95;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5.4vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
   text-transform: uppercase;
-  color: #f5fcff;
-  text-shadow: 0 0 22px rgba(118, 223, 255, 0.24);
+  text-shadow: 3px 3px 0 var(--blue-500);
+  -webkit-font-smoothing: antialiased;
 }
 
 .subtitle {
   margin: 0;
-  max-width: 34rem;
-  font-size: clamp(1rem, 2.6vw, 1.15rem);
-  color: rgba(220, 247, 255, 0.78);
+  color: var(--text-dim);
 }
 
-.menu-panel {
-  padding: 1.1rem;
-  border-radius: 20px 20px 30px 30px;
-}
+/* ---- Menu -------------------------------------------------------------- */
 
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.menu-kicker {
-  color: #9be9ff;
-  font-size: 0.72rem;
-}
-
-.menu-header p {
-  margin: 0;
-  color: rgba(213, 245, 255, 0.68);
-}
-
-.links {
-  display: grid;
-  gap: 0.85rem;
-}
-
-.link-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.1rem;
-  border-radius: 18px;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid rgba(126, 213, 255, 0.16);
-  background:
-    linear-gradient(90deg, rgba(150, 234, 255, 0.14), rgba(35, 79, 141, 0.08) 34%, rgba(8, 12, 30, 0.26)),
-    linear-gradient(180deg, rgba(13, 27, 58, 0.92), rgba(9, 14, 28, 0.92));
-  cursor: pointer;
-  transition:
-    transform 170ms ease,
-    border-color 170ms ease,
-    box-shadow 170ms ease,
-    background 170ms ease;
-}
-
-.link-item::after {
-  content: '';
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  border: 1px solid rgba(180, 240, 255, 0.06);
-  pointer-events: none;
-}
-
-.link-item:hover,
-.link-item:focus-visible {
-  transform: translateX(8px) scale(1.01);
-  border-color: rgba(133, 231, 255, 0.5);
-  box-shadow:
-    0 14px 30px rgba(3, 9, 24, 0.45),
-    0 0 24px rgba(58, 182, 255, 0.22);
-  outline: none;
-}
-
-.link-item:active {
-  transform: translateX(4px) scale(0.995);
-}
-
-.link-index {
-  min-width: 2.6rem;
-  font-size: 1.3rem;
-  color: #82e4ff;
-}
-
-.link-copy {
-  display: grid;
-  gap: 0.34rem;
+.menu {
+  grid-area: menu;
   min-width: 0;
 }
 
-.link-title-row {
+.panel-head {
   display: flex;
-  align-items: center;
-  gap: 0.8rem;
   justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 2px solid var(--edge-dark);
+  color: var(--text-mute);
 }
 
-.link-title-row strong {
-  font-size: clamp(1.08rem, 2.4vw, 1.35rem);
-  color: #f6feff;
+.panel-head h2 {
+  margin: 0;
+  font: inherit;
+  color: var(--text-dim);
 }
 
-.link-copy span {
-  color: rgba(214, 241, 255, 0.72);
+.entries {
+  padding: var(--space-2);
 }
 
-.link-meta {
-  white-space: nowrap;
-  font-size: 0.77rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: rgba(148, 224, 255, 0.7);
+/* One column: each group is a headed block. */
+.group + .group {
+  margin-top: var(--space-3);
 }
 
-.link-item-static {
-  cursor: default;
+.group-title {
+  margin: 0;
+  padding: var(--space-2) var(--space-2) var(--space-1);
+  font: inherit;
+  color: var(--text-mute);
+  border-bottom: 2px solid var(--edge-dark);
 }
 
-.link-title-link {
-  color: inherit;
+.group-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--index-width) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+  padding: var(--space-3) var(--space-2);
+  image-rendering: pixelated;
+  /* Digits are proportional, so the number column is fixed to keep every
+     title on the same left edge. */
+  --index-width: 16px;
+  /* Highlight bar: bright blue that dithers down to a darker blue over its
+     last 192px. Both ends are opaque, so text reads the same along it. */
+  --bar:
+    var(--dither-fade, none) right top / 192px 8px repeat-y,
+    linear-gradient(var(--blue-500), var(--blue-500)) left top / calc(100% - 192px) 100% no-repeat,
+    var(--navy-600);
+}
+
+.entry + .entry {
+  border-top: 2px solid rgba(34, 42, 110, 0.55);
+}
+
+.entry-cursor {
+  display: none;
+}
+
+.entry-index {
+  grid-area: 1 / 1;
+  color: var(--blue-300);
+}
+
+.entry-link {
+  grid-area: 1 / 2;
+  color: var(--text);
   text-decoration: none;
-}
-
-.link-title-link:hover,
-.link-title-link:focus-visible {
-  text-decoration: underline;
   outline: none;
 }
 
-.link-downloads {
+/* The title link stretches over the whole row, so the row is one target. */
+.entry-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.entry-link:focus-visible::after {
+  outline: 2px solid var(--select);
+  outline-offset: -2px;
+}
+
+.entry-desc {
+  grid-column: 2 / -1;
+  margin: 0;
+  color: var(--text-dim);
+}
+
+/* One column has no resting cursor: a row lights up while it is pressed,
+   focused or under a pointer. (Two columns use .is-selected instead, so only
+   one row is ever lit.) */
+@media (max-width: 1023.98px) {
+  .entry:is(:focus-within, :active) {
+    background: var(--bar);
+  }
+
+  .entry:is(:focus-within, :active) .entry-link {
+    color: var(--select);
+  }
+
+  .entry:is(:focus-within, :active) :is(.entry-index, .entry-desc) {
+    color: var(--text);
+  }
+}
+
+@media (max-width: 1023.98px) and (hover: hover) {
+  .entry:hover {
+    background: var(--bar);
+  }
+
+  .entry:hover .entry-link {
+    color: var(--select);
+  }
+
+  .entry:hover :is(.entry-index, .entry-desc) {
+    color: var(--text);
+  }
+}
+
+/* ---- Preview ----------------------------------------------------------- */
+
+/* Small screens keep only the model, tucked beside the masthead; the pane
+   around it appears once there is room for a second column. */
+.preview {
+  display: contents;
+}
+
+.viewer {
+  grid-area: viewer;
+  align-self: center;
+  width: 88px;
+  height: 88px;
+  background: var(--navy-900);
+  border: 2px solid;
+  border-color: var(--edge-dark) var(--edge-light) var(--edge-light) var(--edge-dark);
+}
+
+.viewer-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.preview-info {
+  display: none;
+}
+
+/* ---- Footer ------------------------------------------------------------ */
+
+.footer {
+  grid-area: footer;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  color: var(--text-mute);
 }
 
-.link-download {
-  padding: 0.3rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(133, 231, 255, 0.35);
-  background: rgba(143, 227, 255, 0.08);
-  color: #9de9ff;
-  font-size: 0.77rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  text-decoration: none;
-  transition: border-color 170ms ease, background 170ms ease;
+.hints {
+  display: none;
+  gap: var(--space-5);
+  margin: 0;
 }
 
-.link-download:hover,
-.link-download:focus-visible {
-  border-color: rgba(133, 231, 255, 0.7);
-  background: rgba(143, 227, 255, 0.18);
-  outline: none;
+.hints kbd {
+  display: inline-block;
+  min-width: 28px;
+  margin-right: var(--space-1);
+  padding: 0 var(--space-2);
+  font: inherit;
+  text-align: center;
+  color: var(--text);
+  background: var(--navy-700);
+  border: 2px solid;
+  border-color: var(--edge-light) var(--edge-dark) var(--edge-dark) var(--edge-light);
 }
 
 .footer-note {
-  z-index: 1;
-  padding: 0.8rem 1rem;
-  border-radius: 16px;
-}
-
-.footer-note p {
   margin: 0;
-  color: rgba(197, 234, 249, 0.68);
-  font-size: 0.9rem;
 }
 
-.scanlines {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.045) 0,
-    rgba(255, 255, 255, 0.045) 1px,
-    transparent 1px,
-    transparent 4px
-  );
-  opacity: 0.18;
-  mix-blend-mode: soft-light;
-}
+/* ---- Two columns: compact list, cursor, preview pane -------------------- */
 
-.orbs {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.orb {
-  position: absolute;
-  display: block;
-  border-radius: 999px;
-  filter: blur(6px);
-  opacity: 0.42;
-  animation: float 11s ease-in-out infinite;
-}
-
-.orb-a {
-  top: 6%;
-  right: 8%;
-  width: 190px;
-  height: 190px;
-  background: radial-gradient(circle, rgba(136, 235, 255, 0.55), rgba(136, 235, 255, 0));
-}
-
-.orb-b {
-  bottom: 18%;
-  left: -4%;
-  width: 240px;
-  height: 240px;
-  background: radial-gradient(circle, rgba(88, 140, 255, 0.4), rgba(88, 140, 255, 0));
-  animation-delay: -3s;
-}
-
-.orb-c {
-  bottom: -3%;
-  right: 24%;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(circle, rgba(74, 237, 255, 0.3), rgba(74, 237, 255, 0));
-  animation-delay: -6s;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
+@media (min-width: 1024px) {
+  .screen {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-areas:
+      'masthead masthead'
+      'menu preview'
+      'footer footer';
+    gap: var(--space-5);
   }
 
-  50% {
-    transform: translate3d(0, -14px, 0);
-  }
-}
-
-@media (max-width: 720px) {
-  .hero-panel,
-  .menu-panel {
-    padding: 1rem;
-  }
-
-  .link-item {
-    grid-template-columns: 1fr;
-  }
-
-  .menu-header,
-  .link-title-row {
+  /* Two columns: the group name moves into a gutter beside its first row, so
+     grouping costs no extra lines and a group of one still reads naturally. */
+  .group {
     display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    column-gap: var(--space-2);
   }
 
-  .link-index,
-  .link-meta {
-    font-size: 0.78rem;
+  .group + .group {
+    margin-top: var(--space-2);
   }
 
-  .hero-panel h1 {
-    font-size: clamp(2.3rem, 16vw, 4.4rem);
+  /* Same padding and line height as a row, so it sits on the first row's line. */
+  .group-title {
+    align-self: start;
+    padding: var(--space-2) 0 var(--space-2) var(--space-2);
+    border-bottom: 0;
+  }
+
+  .group.is-current .group-title {
+    color: var(--text);
+  }
+
+  .entry {
+    grid-template-columns: 12px var(--index-width) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+    min-height: 40px;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .entry + .entry {
+    border-top: 0;
+  }
+
+  .entry-cursor {
+    grid-area: 1 / 1;
+    display: block;
+    width: 10px;
+    height: 12px;
+    background: var(--select);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    visibility: hidden;
+  }
+
+  .entry-index { grid-area: 1 / 2; }
+  .entry-link { grid-area: 1 / 3; }
+
+  /* Still in the accessibility tree; the pane shows it to everyone else. */
+  .entry-desc {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* The cursor rests on one row at all times, as it would on a console. */
+  .entry.is-selected {
+    background: var(--bar);
+  }
+
+  .entry.is-selected .entry-link {
+    color: var(--select);
+  }
+
+  .entry.is-selected .entry-index {
+    color: var(--text);
+  }
+
+  .entry.is-selected .entry-cursor {
+    visibility: visible;
+    animation: blink 0.9s steps(1) infinite;
+  }
+
+  .preview {
+    grid-area: preview;
+    position: sticky;
+    top: var(--space-5);
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    /* As tall as the list while that fits on screen; past that it stays
+       viewport-sized and sticks as the list scrolls. */
+    min-height: min(100%, calc(100dvh - 2 * var(--space-5)));
+  }
+
+  /* Fixed 4:3 off its width; it must not flex, or the ratio would run the
+     other way and widen it past the pane. */
+  .viewer {
+    flex: none;
+    align-self: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border: 0;
+    border-bottom: 2px solid var(--edge-dark);
+  }
+
+  .preview-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-5) var(--space-5);
+  }
+
+  .preview-info p {
+    margin: 0;
+  }
+
+  .preview-meta {
+    display: flex;
+    gap: var(--space-3);
+    color: var(--text-mute);
+  }
+
+  .preview-meta span:first-child {
+    color: var(--blue-300);
+  }
+
+  .preview-title {
+    font-size: var(--type-large);
+    line-height: 1;
+  }
+
+  /* Room for two lines, so the pane holds its height as the cursor moves. */
+  .preview-desc {
+    min-height: calc(2 * var(--line));
+    color: var(--text-dim);
+  }
+
+  /* Any height the pane has to spare opens up above the address, which stays
+     on the bottom edge. */
+  .preview-info .preview-address {
+    margin-top: auto;
+    color: var(--text-mute);
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .hints {
+    display: flex;
+  }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry.is-selected .entry-cursor {
+    animation: none;
   }
 }
