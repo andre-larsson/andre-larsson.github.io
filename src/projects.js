@@ -58,6 +58,11 @@ const groups = [
         title: 'Music Toolbox',
         description: 'Browser metronome, tap tempo, tuner, and speaker check.',
       },
+      {
+        slug: 'musicbox',
+        title: 'musicbox',
+        description: 'Adaptive game music written as text and synthesized in the browser.',
+      },
     ],
   },
   {
