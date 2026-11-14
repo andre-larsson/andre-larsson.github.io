@@ -11,7 +11,7 @@ const groups = [
       {
         slug: 'games',
         title: 'Games',
-        description: 'Small browser games: the push-puzzle Menhir and the deckbuilder Brinelight.',
+        description: 'Small browser games: the push-puzzle Menhir, the deckbuilder Brinelight and Per My Last ReQuest, where an in-browser language model follows your orders.',
       },
     ],
   },
